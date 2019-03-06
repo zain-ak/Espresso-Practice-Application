@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Espresso Practice Application</string>
+    <string name="btn_text">You Want to Click Me</string>
+    <string name="textview_text">Well well well...</string>
 </resources>

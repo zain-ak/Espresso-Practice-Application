@@ -9,19 +9,20 @@ import android.widget.TextView;
 public class MainActivity extends AppCompatActivity {
 
     private TextView greetingView;
-
+    private Button greetingBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         greetingView = findViewById(R.id.greeting_view);
-        Button greetingBtn = findViewById(R.id.greeting_btn);
+        greetingBtn = findViewById(R.id.greeting_btn);
 
     }
 
     //Keep public so that MainActivity Test can access this method
     public void setGreetingView(View view) {
-        greetingView.setText("Well well well...");
+        greetingBtn.setEnabled(false);
+        greetingView.setText(R.string.textview_text);
     }
 }
