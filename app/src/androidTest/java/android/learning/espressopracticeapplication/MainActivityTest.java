@@ -123,6 +123,23 @@ public class MainActivityTest {
         onView(withId(R.id.greeting_btn))
                 .check(matches(isDisplayed()));
 
+//        //The following is a repeat of some above code... designed to fail
+//        onView(withId(R.id.greeting_btn))
+//                .perform(click());
+//        onView(withId(R.id.greeting_view))
+//                .check(matches(not(isDisplayed())));
+//        onView(withId(R.id.list))
+//                .check(matches(isDisplayed()));
+//
+//        //Click on 29 just to check it's there, this will require the list to be scrolled
+//        //The header should also be visible after this click
+//        onData(withValue(40))
+//                .inAdapterView(withId(R.id.list))
+//                .perform(click());
+//        onView(withId(R.id.header))
+//                .check(matches(withText("29")))
+//                .check(matches(isDisplayed()));
+
 
     }
 
