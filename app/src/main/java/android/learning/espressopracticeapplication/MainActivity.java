@@ -1,5 +1,6 @@
 package android.learning.espressopracticeapplication;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -66,6 +67,10 @@ public class MainActivity extends AppCompatActivity {
         greetingView.setVisibility(View.GONE);
         greetingBtn.setVisibility(View.GONE);
         list.setVisibility(View.VISIBLE);
+    }
+
+    public void goToRecyclerView(View view) {
+        startActivity(new Intent(this, RecyclerViewActivity.class));
     }
 
     public class Items {

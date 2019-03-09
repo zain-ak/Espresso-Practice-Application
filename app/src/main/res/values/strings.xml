@@ -3,4 +3,5 @@
     <string name="btn_text">You Want to Click Me</string>
     <string name="textview_text">Well well well...</string>
     <string name="app_title">Espresso Testing ☕️</string>
+    <string name="recycler_view_btn">Go To Recycler View</string>
 </resources>
