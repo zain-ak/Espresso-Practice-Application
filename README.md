@@ -7,6 +7,7 @@ Espresso is a UI testing framework used in Android development for writing instr
 Basic setup instructions can be found here [here](https://goo.gl/HpLmwX "Espresso Setup Guide").
 
 <h3>Project Overview</h3>
+
 The relevant project files are `MainActivity.java` and `RecyclerViewActivity.java`. Espresso test files are included in `src` > `androidTest` > `java` > _package name_ ; these files are named according to the activities which are being tested. So for this project the files are `MainActivityTest.java` and `RecyclerViewActivityTest.java`. 
 <br>
 
