@@ -23,13 +23,13 @@ onView(viewMatcher) //Used to locate the view by id
 ```
 The methods used below follow this conventional formula and apply to most Views in Android:
 
-- ...```public void greeting()```: the first function implemented which tests a `TextView greeting_view`, and a `Button greeting_btn`. When the app opens, `greeting_view` should be empty, and once `greeting_btn` is clicked, it should be disabled and `greeting_view` is given the text _'Well, well, well...'._
+1.```public void greeting()```: the first function implemented which tests a `TextView greeting_view`, and a `Button greeting_btn`. When the app opens, `greeting_view` should be empty, and once `greeting_btn` is clicked, it should be disabled and `greeting_view` is given the text _'Well, well, well...'._
 
-- ...```public void toolbarTitle()```: Checks the toolbar title of the application. The commented out section is one way to check the title, but it can have issues due to overspecification (this reduces the robustness of the code in case Google were to change layout specifications in the future). Instead, it's better to use `BoundedMatcher` which allows the developer to supply their own match criteria. The word _Bounded_ implies that the criteria applies to a specific class, in the case of this function that is `Toolbar`.
+1.```public void toolbarTitle()```: Checks the toolbar title of the application. The commented out section is one way to check the title, but it can have issues due to overspecification (this reduces the robustness of the code in case Google were to change layout specifications in the future). Instead, it's better to use `BoundedMatcher` which allows the developer to supply their own match criteria. The word _Bounded_ implies that the criteria applies to a specific class, in the case of this function that is `Toolbar`.
 
-- ...The matcher is written below this function, and implements two methods called matchesSafely() and describeTo(). matchesSafely() is the criteria checker and returns a true/false. describeTo() describes the nature of the problem in the case false is returned.
+  - The matcher is written below this function, and implements two methods called matchesSafely() and describeTo(). matchesSafely() is the criteria checker and returns a true/false. describeTo() describes the nature of the problem in the case false is returned.
     
-- ...These are the methods that will be implemented in any `BoundedMatcher`. 
+  - ...These are the methods that will be implemented in any `BoundedMatcher`. 
 
 There is also a file called `MainActivityTestRecorded.java`. This file was created using the *Record Espresso Test* just to see the automatic testing that is built into Android Studio. This testing is useful for quick tests that aren't too complex, and also a handy reference when you're struggling to write your own test, since it generates the code which is usually much more precise in regards to user input. An example is when a user clicks the screen, Espresso Recorder will save the exact co-ordinates where the click was made and use these co-ordinates in all subsequent runs. Much of the code generated here is not required, the Espresso framework can work with much less information and still run tests correctly. 
 
