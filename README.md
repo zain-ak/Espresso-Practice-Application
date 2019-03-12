@@ -6,10 +6,14 @@ Espresso is a UI testing framework used in Android development for writing instr
 
 Basic setup instructions can be found here [here](goo.gl/HpLmwX "Espresso Setup Guide")
 
-<h4>Project Overview</h4>
+<h3>Project Overview</h3>
 The relevant project files are `MainActivity.java` and `RecyclerViewActivity.java`. Espresso test files are included in `src` > `androidTest` > `java` > _package name_ ; these files are named according to the activities which are being tested. So for this project the files are `MainActivityTest.java` and `RecyclerViewActivityTest.java`. 
-
-The test files have some code in them that differentiates them from normal class files. The first is the annotation `@RunWith(AndroidJUnit4::class)` (or `@RunWith(AndroidJUnit4.class)` for Java) which signifies that the tests in this class are all Android tests. An `ActivityTestRule` has to be added next, and this is to tell Espresso which activity to test for the methods that follow. This is essentially a linking of the test file and the normal activity file. There is always an `@Rule` annotation above an ActivityTestRule which serves to say that this is a JUnit test rule. Another annotation that could be used is `@JVMField` which is Kotlin specific; this is used if the tests are being written in Kotlin. Each test method will be annotated by `@Test`.
+<br>
+The test files have some code in them that differentiates them from normal class files:
+* The first is the annotation `@RunWith(AndroidJUnit4::class)` (or `@RunWith(AndroidJUnit4.class)` for Java) which signifies that the tests in this class are all Android tests. 
+* An `ActivityTestRule` has to be added next, and this is to tell Espresso which activity to test for the methods that follow. This is essentially a linking of the test file and the normal activity file. 
+* There is always an `@Rule` annotation above an ActivityTestRule which serves to say that this is a JUnit test rule. Another annotation that could be used is `@JVMField` which is Kotlin specific; this is used if the tests are being written in Kotlin. 
+* Each test method will be annotated by `@Test`.
 
 The conventional Espresso formula used for testing is:
 ```java
@@ -19,13 +23,13 @@ onView(viewMatcher) //Used to locate the view by id
 ```
 The methods used below follow this conventional formula and apply to most Views in Android:
 
-... * ```public void greeting()```: the first function implemented which tests a `TextView greeting_view`, and a `Button greeting_btn`. When the app opens, `greeting_view` should be empty, and once `greeting_btn` is clicked, it should be disabled and `greeting_view` is given the text _'Well, well, well...'._
+-...```public void greeting()```: the first function implemented which tests a `TextView greeting_view`, and a `Button greeting_btn`. When the app opens, `greeting_view` should be empty, and once `greeting_btn` is clicked, it should be disabled and `greeting_view` is given the text _'Well, well, well...'._
 
-... * ```public void toolbarTitle()```: Checks the toolbar title of the application. The commented out section is one way to check the title, but it can have issues due to overspecification (this reduces the robustness of the code in case Google were to change layout specifications in the future). Instead, it's better to use `BoundedMatcher` which allows the developer to supply their own match criteria. The word _Bounded_ implies that the criteria applies to a specific class, in the case of this function that is `Toolbar`.
+-...```public void toolbarTitle()```: Checks the toolbar title of the application. The commented out section is one way to check the title, but it can have issues due to overspecification (this reduces the robustness of the code in case Google were to change layout specifications in the future). Instead, it's better to use `BoundedMatcher` which allows the developer to supply their own match criteria. The word _Bounded_ implies that the criteria applies to a specific class, in the case of this function that is `Toolbar`.
 
-    - The matcher is written below this function, and implements two methods called matchesSafely() and describeTo(). matchesSafely() is the criteria checker and returns a true/false. describeTo() describes the nature of the problem in the case false is returned.
+...- The matcher is written below this function, and implements two methods called matchesSafely() and describeTo(). matchesSafely() is the criteria checker and returns a true/false. describeTo() describes the nature of the problem in the case false is returned.
     
-    - These are the methods that will be implemented in any `BoundedMatcher`. 
+...- These are the methods that will be implemented in any `BoundedMatcher`. 
 
 There is also a file called `MainActivityTestRecorded.java`. This file was created using the *Record Espresso Test* just to see the automatic testing that is built into Android Studio. This testing is useful for quick tests that aren't too complex, and also a handy reference when you're struggling to write your own test, since it generates the code which is usually much more precise in regards to user input. An example is when a user clicks the screen, Espresso Recorder will save the exact co-ordinates where the click was made and use these co-ordinates in all subsequent runs. Much of the code generated here is not required, the Espresso framework can work with much less information and still run tests correctly. 
 
