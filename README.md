@@ -1,4 +1,4 @@
-<h1>Android Espresso Practice Application <img src="https://camo.githubusercontent.com/737e7380383ffcd2f3b9bf55c678f3b368feb730/68747470733a2f2f6c68352e676f6f676c6575736572636f6e74656e742e636f6d2f2d453259504c6c56416c30552f564a556350726756432d492f414141414141414147464d2f416b715a6e354e387272632f773839302d68313030392f657370726573736f5f6c6f636b75702e706e67" height="125" width="110" /></h1> 
+<h1>Android Espresso Practice Application <img src="https://camo.githubusercontent.com/737e7380383ffcd2f3b9bf55c678f3b368feb730/68747470733a2f2f6c68352e676f6f676c6575736572636f6e74656e742e636f6d2f2d453259504c6c56416c30552f564a556350726756432d492f414141414141414147464d2f416b715a6e354e387272632f773839302d68313030392f657370726573736f5f6c6f636b75702e706e67" height="125" width="115" /></h1> 
 
 A Java-based Android Application for learning the Espresso framework for UI Testing. The course ['Android Espresso Essential Training'](https://www.lynda.com/Android-tutorials/Android-Espresso-Essential-Training/688523-2.html) by Chiu-Ki Chan was followed for this project. Instead of making different projects for each chapter as is done in the videos, everything was integrated into one project. This allowed me to go a little further in terms of the Espresso tests written, and I'll point this out as I go along.
 
@@ -42,7 +42,7 @@ An example is when a user clicks the screen, Espresso Recorder will save the exa
 _Note:_ ETR is maintained by a different team than the normal Espresso library and this makes it slower for updates so this should be taken into account.
 
 <br><h5>Espresso Formula for Adapter Views</h5>
-Adapter views such `ListViews` and `RecyclerViews` display data from a source. This means that views won't be matched but instead data will be, and so this requires a different formula for testing adapter views:
+Adapter views such `ListViews` display data from a source. This means that views won't be matched but instead data will be, and so this requires a different formula for testing adapter views:
 
 ```java
 onData(ObjectMatcher) //ObjectMatcher is the piece of data you're looking to test
@@ -50,4 +50,6 @@ onData(ObjectMatcher) //ObjectMatcher is the piece of data you're looking to tes
     .perform(ViewAction) //performing an action on the view, a click for example
     .check(ViewAssertion) //check that the action performed results in the correct output
 ```
-The code in the project is testing a `ListView` using a `BoundedMatcher`. `.inAdapterView` is looking for the ListView by id. It is one of the possible inputs for `DataOptions`. 
+The code in the project is testing a `ListView` using a `BoundedMatcher`. `.inAdapterView` is looking for the ListView by id. It is one of the possible inputs for `DataOptions`. Usually for a list, you'll search for the last element in the list to make sure that Espresso scrolls through the whole list. This is to ensure that the list is functioning correctly. 
+
+_Note:_ `RecyclerView` does not descend from AdapterView and so the above Espresso formula does not apply to it. In fact, the earlier formula `onView()` and actions can be performed on it using `RecyclingViewActions`. This implmentation can be viewed in the `RecyclerViewActivtyTest.kt` file, it is much simpler than the implementation for `ListView`. 
