@@ -16,6 +16,7 @@ The test files have some code in them that differentiates them from normal class
 * An `ActivityTestRule` has to be added next, and this is to tell Espresso which activity to test for the methods that follow. This is essentially a linking of the test file and the normal activity file. 
 * There is always an `@Rule` annotation above an ActivityTestRule which serves to say that this is a JUnit test rule. Another annotation that could be used is `@JVMField` which is Kotlin specific; this is used if the tests are being written in Kotlin. 
 * Each test method will be annotated by `@Test`.
+
 <br><h4>Conventional Espresso Formula</h4>
 The conventional Espresso formula used for testing is:
 
