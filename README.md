@@ -9,13 +9,15 @@ Basic setup instructions can be found here [here](https://goo.gl/HpLmwX "Espress
 <h3>Project Overview</h3>
 The relevant project files are `MainActivity.java` and `RecyclerViewActivity.java`. Espresso test files are included in `src` > `androidTest` > `java` > _package name_ ; these files are named according to the activities which are being tested. So for this project the files are `MainActivityTest.java` and `RecyclerViewActivityTest.java`. 
 <br>
+
 The test files have some code in them that differentiates them from normal class files:
 * The first is the annotation `@RunWith(AndroidJUnit4::class)` (or `@RunWith(AndroidJUnit4.class)` for Java) which signifies that the tests in this class are all Android tests. 
 * An `ActivityTestRule` has to be added next, and this is to tell Espresso which activity to test for the methods that follow. This is essentially a linking of the test file and the normal activity file. 
 * There is always an `@Rule` annotation above an ActivityTestRule which serves to say that this is a JUnit test rule. Another annotation that could be used is `@JVMField` which is Kotlin specific; this is used if the tests are being written in Kotlin. 
 * Each test method will be annotated by `@Test`.
-<br><h5>Conventional Espresso Formula</h5>
+<br><h4>Conventional Espresso Formula</h4>
 The conventional Espresso formula used for testing is:
+
 ```java
 onView(viewMatcher) //Used to locate the view by id
     perform(ViewAction) //performing an action on the view, a click for example
@@ -41,7 +43,7 @@ An example is when a user clicks the screen, Espresso Recorder will save the exa
 
 _Note:_ ETR is maintained by a different team than the normal Espresso library and this makes it slower for updates so this should be taken into account.
 
-<br><h5>Espresso Formula for Adapter Views</h5>
+<h4>Espresso Formula for Adapter Views</h4>
 Adapter views such `ListViews` display data from a source. This means that views won't be matched but instead data will be, and so this requires a different formula for testing adapter views:
 
 ```java
