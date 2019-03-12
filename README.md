@@ -50,4 +50,4 @@ onData(ObjectMatcher) //ObjectMatcher is the piece of data you're looking to tes
     .perform(ViewAction) //performing an action on the view, a click for example
     .check(ViewAssertion) //check that the action performed results in the correct output
 ```
-The code in the project is testing a `ListView` using a `BoundedMatcher`. The `.onDataOptions` can be regarded as `.inAdapterView` which is basically looking for the ListView by id. 
+The code in the project is testing a `ListView` using a `BoundedMatcher`. `.inAdapterView` is looking for the ListView by id. It is one of the possible inputs for `DataOptions`. 
